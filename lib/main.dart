@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'home_page.dart';
-import 'signin_page.dart';
-import 'signup_page.dart';
+import 'Screens/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,12 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Login App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: Colors.red),
       home: const HomePage(),
-      routes: <String, WidgetBuilder>{
-        '/SigninPage': (BuildContext context) => const SigninPage(),
-        '/SignupPage': (BuildContext context) => const SignupPage(),
-      },
     );
   }
 }
