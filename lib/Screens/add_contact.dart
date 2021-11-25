@@ -76,16 +76,11 @@ class _AddContactState extends State<AddContact> {
   void uploadImage(File file, String fileName) async {
     Reference storageReference = FirebaseStorage.instance.ref().child(fileName);
 
-    print("$storageReference");
+    final result = await storageReference.putFile(file);
+    final fileUrl = await result.ref.getDownloadURL();
 
-    storageReference.putFile(file).whenComplete(() {
-      var downloadUrl = storageReference.getDownloadURL();
-
-      print("downloadUrl $downloadUrl");
-
-      setState(() {
-        _photoUrl = downloadUrl.toString();
-      });
+    setState(() {
+      _photoUrl = fileUrl;
     });
   }
 
